@@ -1,36 +1,195 @@
-# This is a basic workflow to help you get started with Actions
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Medical Check-up Package</title>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap');
 
-name: CI
+    body {
+        font-family: 'Cairo', sans-serif;
+        background-color: #f9f5f1; /* Off-white background for orange theme */
+        margin: 0;
+        padding: 20px 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+    }
 
-# Controls when the workflow will run
-on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
-  push:
-    branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
+    .page {
+        background: white;
+        width: 21cm; /* A4 width */
+        min-height: 29.7cm; /* A4 height */
+        padding: 2cm;
+        box-shadow: 0 0 20px rgba(0,0,0,0.15);
+        border-radius: 10px;
+        box-sizing: border-box;
+    }
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    /* --- Main Title Shape (Green) --- */
+    .main-title-header {
+        background-color: #00663f; /* Requested Green Background */
+        color: white; /* White text for contrast */
+        border-radius: 10px;
+        padding: 15px 20px;
+        text-align: center;
+        margin-bottom: 30px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 20px; /* Space between the two titles */
+    }
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
+    .main-title-header .title-part {
+        font-size: 24px;
+        font-weight: 700;
+    }
+    
+    .main-title-header .separator {
+        font-size: 26px;
+        font-weight: 300;
+        opacity: 0.6;
+    }
+    /* --- End of Section --- */
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v4
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
+    .header {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        border-bottom: 3px solid #da4a0c; /* Dark Orange */
+        padding-bottom: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .header h1 {
+        color: #da4a0c; /* Dark Orange */
+        font-size: 28px;
+        margin: 0 0 10px 0;
+        font-weight: 700;
+    }
+    
+    .discount-badge {
+        font-family: Arial, sans-serif;
+        background-color: #da4a0c; /* Dark Orange */
+        color: white;
+        font-size: 20px;
+        font-weight: bold;
+        padding: 8px 18px;
+        border-radius: 8px;
+        margin-top: 5px;
+        letter-spacing: 0.5px;
+        display: inline-block;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
 
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
+    .section-title {
+        background-image: linear-gradient(to left, #da4a0c, #ec8937); /* Orange Gradient */
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        margin-top: 30px;
+        margin-bottom: 15px;
+        font-size: 22px;
+        font-weight: 600;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 10px;
+    }
+
+    td {
+        padding: 14px 10px;
+        border-bottom: 1px solid #e0e0e0;
+        font-size: 16px;
+        color: #333;
+    }
+
+    tr:last-child td {
+        border-bottom: none;
+    }
+
+    tr:hover {
+        background-color: #fff3e0; /* Light orange hover effect */
+        transition: background-color 0.3s ease;
+    }
+
+    .english-name {
+        font-family: Arial, sans-serif;
+        font-size: 15px;
+        color: #555;
+        text-align: left;
+        padding-left: 20px;
+        width: 50%;
+    }
+
+    .arabic-name {
+       text-align: right;
+       font-weight: 600;
+       width: 50%;
+    }
+
+</style>
+</head>
+<body>
+
+<div class="page">
+    
+    <div class="main-title-header">
+        <div class="title-part">شركة الأهلي للخدمات الطبية</div>
+        <div class="separator">|</div>
+        <div class="title-part">مستشفى شفا</div>
+    </div>
+
+    <div class="header">
+        <h1>قائمة الفحوصات الطبية</h1>
+        <div class="discount-badge">45% Discount on Check-Up package</div>
+    </div>
+
+    <div class="section-title">Analyses (التحاليل) 🧪</div>
+    <table>
+        <tr><td class="arabic-name">تحليل بول</td><td class="english-name">Urine</td></tr>
+        <tr><td class="arabic-name">تحليل براز</td><td class="english-name">Stool analysis</td></tr>
+        <tr><td class="arabic-name">دم خفي في البراز</td><td class="english-name">Occult Blood in Stool</td></tr>
+        <tr><td class="arabic-name">سرعة الترسيب</td><td class="english-name">ESR</td></tr>
+        <tr><td class="arabic-name">صورة دم كاملة</td><td class="english-name">CBC</td></tr>
+        <tr><td class="arabic-name">فصيلة الدم</td><td class="english-name">ABO</td></tr>
+        <tr><td class="arabic-name">سكر صائم</td><td class="english-name">FBS</td></tr>
+        <tr><td class="arabic-name">سكر تراكمي</td><td class="english-name">HBA1C</td></tr>
+        <tr><td class="arabic-name">بيليروبين (كلي)</td><td class="english-name">Bilirubin (Total)</td></tr>
+        <tr><td class="arabic-name">بيليروبين (مباشر)</td><td class="english-name">Bilirubin (Direct)</td></tr>
+        <tr><td class="arabic-name">إنزيمات الكبد</td><td class="english-name">SGPT</td></tr>
+        <tr><td class="arabic-name">إنزيمات الكبد</td><td class="english-name">SGOT</td></tr>
+        <tr><td class="arabic-name">كرياتينين</td><td class="english-name">Creatinine</td></tr>
+        <tr><td class="arabic-name">حمض اليوريك</td><td class="english-name">Uric Acid</td></tr>
+        <tr><td class="arabic-name">يوريا</td><td class="english-name">Urea</td></tr>
+        <tr><td class="arabic-name">دهون (كوليسترول، HDL، LDL)</td><td class="english-name">Cholesterol (Total) HDL LDL</td></tr>
+        <tr><td class="arabic-name">دهون ثلاثية</td><td class="english-name">Triglycerides</td></tr>
+        <tr><td class="arabic-name">زلال دقيق في بول 24 ساعة</td><td class="english-name">24 hrs. Microalbumine in urine</td></tr>
+        <tr><td class="arabic-name">كالسيوم (كلي)</td><td class="english-name">Calcuim (Total)</td></tr>
+        <tr><td class="arabic-name">هرمون الغدة الدرقية</td><td class="english-name">TSH</td></tr>
+        <tr><td class="arabic-name">أجسام مضادة لفيروس سي</td><td class="english-name">HCV AB</td></tr>
+        <tr><td class="arabic-name">مستضد فيروس بي</td><td class="english-name">HBS AG</td></tr>
+    </table>
+
+    <div class="section-title">Radiology (الأشعات) ☢️</div>
+    <table>
+        <tr><td class="arabic-name">رسم قلب</td><td class="english-name">Rest ECG</td></tr>
+        <tr><td class="arabic-name">أشعة عادية على الصدر (منظر واحد)</td><td class="english-name">Chest X-Ray (ONE VIEW)</td></tr>
+        <tr><td class="arabic-name">موجات فوق صوتية على البطن والحوض</td><td class="english-name">U/S Pelvi & Abd</td></tr>
+    </table>
+
+    <div class="section-title">Examination (الكشف) 🩺</div>
+    <table>
+        <tr><td class="arabic-name">كشف طبي</td><td class="english-name">Examination</td></tr>
+    </table>
+</div>
+
+</body>
+</html>
